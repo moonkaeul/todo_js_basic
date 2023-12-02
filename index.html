@@ -31,7 +31,6 @@
     </header>
 		<section>
 	    <ul id="todo-list">
-            <li class="todo"></li>
 	    </ul>
 		</section>
     <footer>
@@ -44,10 +43,23 @@
         const todoText = document.querySelector("#input-task").value;
 	      const newLiText = "<li>"+ todoText +"</li>";
 	      const selectedUl = document.querySelector("#todo-list");
-	      selectedUl.innerHTML += newLiText;
-        document.querySelector("#input-task").value ="";
+        if(todoText !==""){
+          selectedUl.innerHTML += newLiText;
+          document.querySelector("#input-task").value = ""; 
+        }
+        else{
+          alert("너무 어려워요");
+        }
       }
       document.querySelector("#btn-add").addEventListener("click",투두입력받아서추가하기);
+      function init(){
+        const todoListUl = document.querySelector("#todo-list")
+        if(todoListUl.childElementCount<1){
+          todoListUl.innerText = "할일이 없습니다."
+        }
+        console.log("함수가 실행됨!");
+      }
+      init()
   </script>
 </body>
 </html>
